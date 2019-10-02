@@ -1,0 +1,28 @@
+﻿<div class="jumbotron">
+    <h1>DownloadApp</h1>
+    <p class="lead">This is a simple download web application using sql server, Asp.net Web API and AngularJS</p>
+    <hr class="my-4">
+    <p>Asp.net retrives download details from sql server and provide API to the front end, front-end uses AngularJS to process the API and display details of downloadable content to user</p>
+</div>
+<div ng-app="DownloadApp">
+    <div ng-controller="DownloadCtrl as downloadList">
+        <div class="row">
+            <div class="card col-md-3" ng-repeat="item in downloadList.items">
+                <div class="card-body">
+                    <h4 class="card-title">{{ item.FileName }}</h4>
+                    <p class="card-text">
+                        File Type: {{item.FileType}}<br />
+                        Created: {{ item.CreateTime}}<br />
+                        File Size: {{ item.FileSize | filesize }}
+                    </p>
+                    <a href="/{{item.FilePath}}" class="btn btn-primary" download>Download {{item.FilePath.name}}</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section scripts {
+    @Scripts.Render("~/Scripts/angular.js")
+    @Scripts.Render("~/Scripts/app/download-controller.js")
+}
