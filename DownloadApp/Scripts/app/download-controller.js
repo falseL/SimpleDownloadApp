@@ -15,7 +15,7 @@ function DownloadCtrl(DownloadService) {
         downloadList.items = response.data
     })
         .catch(function (error) {
-            console.log("Something went terribly wrong.");
+            console.log("Something went wrong.");
         });
 }
 
