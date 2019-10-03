@@ -8,9 +8,7 @@ namespace DownloadApp
 {
         public class UserMasterRepository : IDisposable
         {
-            // SECURITY_DBEntities it is your context class
             DownloadDBContext context = new DownloadDBContext();
-            //This method is used to check and validate the user credentials
             public User ValidateUser(string username, string password)
             {
                 return context.Users.FirstOrDefault(user =>

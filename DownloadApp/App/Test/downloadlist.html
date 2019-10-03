@@ -1,0 +1,15 @@
+﻿<div>
+    <div class="row">
+        <div class="card col-md-3" ng-repeat="item in downloadList.items">
+            <div class="card-body">
+                <h4 class="card-title">{{ item.FileName }}</h4>
+                <p class="card-text">
+                    File Type: {{item.FileType}}<br />
+                    Created: {{ item.CreateTime}}<br />
+                    File Size: {{ item.FileSize | filesize }}
+                </p>
+                <a href="/{{item.FilePath}}" class="btn btn-primary" download>Download {{item.FilePath.name}}</a>
+            </div>
+        </div>
+    </div>
+</div>

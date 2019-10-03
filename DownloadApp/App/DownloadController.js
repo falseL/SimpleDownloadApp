@@ -1,7 +1,6 @@
 ﻿'use strict';
-angular.module('DownloadApp', [])
+downloadApp
     .controller('DownloadCtrl', DownloadCtrl)
-    .constant('ApiBasePath', "/")
     .service('DownloadService', DownloadService)
     .filter('filesize', FileSizeFilter);
 
