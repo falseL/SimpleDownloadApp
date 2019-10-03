@@ -16,10 +16,6 @@ namespace DownloadApp.Controllers
         [Route("api/downloads")]
         public IEnumerable<Download> Get()
         {
-            //using (DownloadDBContext dbContext = new DownloadDBContext())
-            //{
-            //    return dbContext.Downloads.ToList();
-            //}
             using (DownloadDBContext dbContext = new DownloadDBContext())
             {
                 var downloadList = dbContext.Downloads.ToList();

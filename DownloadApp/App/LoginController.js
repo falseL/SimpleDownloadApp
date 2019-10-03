@@ -2,7 +2,22 @@
 -
 downloadApp
     .controller('LoginController', LoginController)
-    .factory('LoginService', LoginService);
+    .factory('LoginService', LoginService)
+    .run(function ($rootScope, $state) {
+        $rootScope.$on('$stateChangeStart', function (e, toState) {
+            var isAuthenticated = Boolean(sessionStorage.getItem('isAuthenticated'));
+            var isLogin = toState.name === "login";
+            if (isLogin) {
+                return;
+            }
+            // redirect only not authenticated
+            if (isAuthenticated !== true) {
+                e.preventDefault(); // stop current execution
+                $state.go('login'); // go to login
+            }
+        });
+    });
+
 
 LoginController.$inject = ['$rootScope', '$stateParams', '$state', 'LoginService'];
 function LoginController($rootScope, $stateParams, $state, LoginService) {

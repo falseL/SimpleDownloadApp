@@ -4,8 +4,6 @@ downloadApp
     .service('DownloadService', DownloadService)
     .filter('filesize', FileSizeFilter);
 
-
-
 DownloadCtrl.$inject = ['DownloadService'];
 function DownloadCtrl(DownloadService) {
     var downloadList = this;
@@ -22,7 +20,13 @@ DownloadService.$inject = ['$http', 'ApiBasePath'];
 function DownloadService($http, ApiBasePath) {
     var service = this;
     service.getDownloadItems = function () {
-        var response = $http({ url: ApiBasePath + 'api/Downloads' });
+        var response = $http({
+            method: 'GET',
+            url: ApiBasePath + 'api/Downloads',
+            headers: {
+                'Authorization': 'Bearer ' + sessionStorage.getItem("access_token")
+            }
+        });
         return response;
     };
 }
