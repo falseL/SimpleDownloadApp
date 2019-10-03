@@ -1,8 +1,7 @@
-﻿using System;
-using Microsoft.Owin;
-using Owin;
-using DownloadApp.Models;
+﻿using Microsoft.Owin;
 using Microsoft.Owin.Security.OAuth;
+using Owin;
+using System;
 using System.Web.Http;
 
 [assembly: OwinStartup(typeof(DownloadApp.Startup))]

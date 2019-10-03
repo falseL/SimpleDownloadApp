@@ -1,8 +1,8 @@
+using DownloadApp.Areas.HelpPage.ModelDescriptions;
+using DownloadApp.Areas.HelpPage.Models;
 using System;
 using System.Web.Http;
 using System.Web.Mvc;
-using DownloadApp.Areas.HelpPage.ModelDescriptions;
-using DownloadApp.Areas.HelpPage.Models;
 
 namespace DownloadApp.Areas.HelpPage.Controllers
 {

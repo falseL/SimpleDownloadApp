@@ -4,8 +4,8 @@ downloadApp
     .service('DownloadService', DownloadService)
     .filter('filesize', FileSizeFilter);
 
-DownloadCtrl.$inject = ['DownloadService'];
-function DownloadCtrl(DownloadService) {
+DownloadCtrl.$inject = ['$state','DownloadService'];
+function DownloadCtrl($state, DownloadService) {
     var downloadList = this;
     var promise = DownloadService.getDownloadItems();
     promise.then(function (response) {
@@ -14,6 +14,11 @@ function DownloadCtrl(DownloadService) {
     .catch(function (error) {
         console.log("Something went wrong.");
     });
+
+    downloadList.logout = function () {
+        sessionStorage.clear();
+        $state.go('login'); // go to login
+    }
 }
 
 DownloadService.$inject = ['$http', 'ApiBasePath'];
