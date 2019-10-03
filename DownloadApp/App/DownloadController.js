@@ -11,9 +11,9 @@ function DownloadCtrl(DownloadService) {
     promise.then(function (response) {
         downloadList.items = response.data
     })
-        .catch(function (error) {
-            console.log("Something went wrong.");
-        });
+    .catch(function (error) {
+        console.log("Something went wrong.");
+    });
 }
 
 DownloadService.$inject = ['$http', 'ApiBasePath'];

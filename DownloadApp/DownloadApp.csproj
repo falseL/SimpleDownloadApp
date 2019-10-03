@@ -224,8 +224,8 @@
     <Content Include="App\App.module.js" />
     <Content Include="App\LoginController.js" />
     <Content Include="App\DownloadController.js" />
-    <Content Include="App\Test\login.html" />
-    <Content Include="App\Test\downloadlist.html" />
+    <Content Include="App\Templates\login.html" />
+    <Content Include="App\Templates\downloadlist.html" />
     <Content Include="Areas\HelpPage\HelpPage.css" />
     <Content Include="Content\bootstrap-grid.css" />
     <Content Include="Content\bootstrap-grid.min.css" />
@@ -248,6 +248,8 @@
     <Content Include="Public\demoPic.jpg" />
     <Content Include="Public\demoVideo.mp4" />
     <Content Include="Scripts\angular-mocks.js" />
+    <Content Include="Scripts\angular-ui-router.js" />
+    <Content Include="Scripts\angular-ui-router.min.js" />
     <Content Include="Scripts\angular.js" />
     <Content Include="Scripts\angular.min.js" />
     <Content Include="Areas\HelpPage\Views\Web.config" />

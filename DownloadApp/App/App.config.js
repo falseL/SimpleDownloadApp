@@ -3,12 +3,29 @@
     $stateProvider
         .state('home', {
             url: '/home',
-            templateUrl: '/App/Test/downloadlist.html',
+            templateUrl: '/App/Templates/downloadlist.html',
             controller: "DownloadCtrl as downloadList"
         })
         .state('login', {
             url: '/login',
-            templateUrl: '/App/Test/login.html',
+            templateUrl: '/App/Templates/login.html',
             controller: "LoginController as loginform"
         })
+});
+
+downloadApp.run(function ($rootScope, $state) {
+    $rootScope.$on('$stateChangeStart', function (e, toState) {
+        var isAuthenticated = Boolean(sessionStorage.getItem('isAuthenticated'));
+        var isLogin = toState.name === "login";
+        var isExpired = new Date() > new Date(sessionStorage.getItem('exp'));
+        if (isLogin) {
+            return;
+        }
+        // redirect when not authenticated, or token expired
+        if (isAuthenticated !== true || isExpired) {
+            sessionStorage.clear();
+            e.preventDefault(); // stop current execution
+            $state.go('login'); // go to login
+        }
+    });
 });

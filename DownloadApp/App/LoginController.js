@@ -1,33 +1,20 @@
 ﻿'use strict';
--
+
 downloadApp
     .controller('LoginController', LoginController)
-    .factory('LoginService', LoginService)
-    .run(function ($rootScope, $state) {
-        $rootScope.$on('$stateChangeStart', function (e, toState) {
-            var isAuthenticated = Boolean(sessionStorage.getItem('isAuthenticated'));
-            var isLogin = toState.name === "login";
-            if (isLogin) {
-                return;
-            }
-            // redirect only not authenticated
-            if (isAuthenticated !== true) {
-                e.preventDefault(); // stop current execution
-                $state.go('login'); // go to login
-            }
-        });
-    });
+    .factory('LoginService', LoginService);
 
 
-LoginController.$inject = ['$rootScope', '$stateParams', '$state', 'LoginService'];
-function LoginController($rootScope, $stateParams, $state, LoginService) {
+
+LoginController.$inject = ['$state', 'LoginService'];
+function LoginController($state, LoginService) {
     var loginForm = this;
     loginForm.formSubmit = function () {
         var loginRequest = LoginService.login(loginForm.username, loginForm.password);
         loginRequest.then(function (response) {
             if (response.status == 200) {
-                console.log(response.data);
                 var now = new Date(); 
+                // set token related values to sessionStorage
                 sessionStorage.setItem("exp", new Date(now.getTime() + response.data.expires_in * 1000));
                 sessionStorage.setItem("access_token", response.data.access_token);
                 sessionStorage.setItem("isAuthenticated", true);
@@ -37,16 +24,13 @@ function LoginController($rootScope, $stateParams, $state, LoginService) {
                 $state.transitionTo('home');
             }
             else {
-                sessionStorage.setItem("isAuthenticated", false);
-                sessionStorage.removeItem("access_token");
+                sessionStorage.clear();
                 loginForm.error = "Incorrect username/password !";
             }
         }).catch(function (e) {
-            sessionStorage.setItem("isAuthenticated", false);
-            sessionStorage.removeItem("access_token");
+            sessionStorage.clear();
             loginForm.error = "Incorrect username/password !";
         });
-        console.log(sessionStorage);
     };
 }
 

@@ -22,7 +22,7 @@ namespace DownloadApp
                 //The Path For generating the Toekn
                 TokenEndpointPath = new PathString("/token"),
                 //Setting the Token Expired Time
-                AccessTokenExpireTimeSpan = TimeSpan.FromMinutes(5),
+                AccessTokenExpireTimeSpan = TimeSpan.FromMinutes(1),
                 //validate the user credentials
                 Provider = new MyAuthorizationServerProvider()
             };
