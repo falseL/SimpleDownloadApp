@@ -9,17 +9,17 @@
     function RoutesConfig($stateProvider, $urlRouterProvider, $locationProvider) {
         console.log('test2')
         $urlRouterProvider.otherwise('/');
-        $locationProvider.hashPrefix(''); 
+        $locationProvider.hashPrefix('');
         $stateProvider
-        .state('home', {
-            url: '/',
-            template: '<p>this is a home template</p>'
-        })
-        .state('login', {
-            url: '/login',
-            templateUrl: 'Scripts/app/templates/login.template.html',
-            controller: 'LoginCtrl'
-        });
+            .state('home', {
+                url: '/',
+                template: '<p>this is a home template</p>'
+            })
+            .state('login', {
+                url: '/login',
+                templateUrl: 'Scripts/app/templates/login.template.html',
+                controller: 'LoginCtrl'
+            });
     }
 
     app.config(['$httpProvider', function ($httpProvider) {

@@ -11,7 +11,7 @@ namespace DownloadApp.Models
 {
     using System;
     using System.Collections.Generic;
-
+    
     public partial class Download
     {
         public int ID { get; set; }

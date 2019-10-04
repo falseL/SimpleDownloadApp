@@ -27,6 +27,5 @@ namespace DownloadApp.Models
     
         public virtual DbSet<Download> Downloads { get; set; }
         public virtual DbSet<User> Users { get; set; }
-        public object User { get; internal set; }
     }
 }

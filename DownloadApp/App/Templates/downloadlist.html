@@ -1,18 +1,23 @@
-﻿<div>
-    <div class="row">
-        <div class="card col-md-3" ng-repeat="item in downloadList.items">
-            <div class="card-body">
-                <h4 class="card-title">{{ item.FileName }}</h4>
-                <p class="card-text">
-                    File Type: {{item.FileType}}<br />
-                    Created: {{ item.CreateTime}}<br />
-                    File Size: {{ item.FileSize | filesize }}
-                </p>
-                <a href="/{{item.FilePath}}" class="btn btn-primary" download>Download {{item.FilePath.name}}</a>
-            </div>
+﻿<div class="row justify-content-center">
+    <div class="col-md-4">
+        <div class="form-group">
+            <input type="text" ng-model="downloadList.query", ng-change="downloadList.search()" placeholder="Narrow down" class="form-control">
         </div>
-        <div class="col-md-12 text-center mt-1">
-            <button class="btn btn-success center-block" type="submit" ng-click="downloadList.logout()">Logout</button>
+    </div>
+</div>
+<div class="row mx-0">
+    <div class="card col-md-3" ng-repeat="item in downloadList.foundItems">
+        <div class="card-body">
+            <h4 class="card-title">{{ item.FileName }}</h4>
+            <p class="card-text">
+                File Type: {{item.FileType}}<br />
+                Created: {{ item.CreateTime}}<br />
+                File Size: {{ item.FileSize | filesize }}
+            </p>
+            <a href="/{{item.FilePath}}" class="btn btn-primary" download>Download {{item.FilePath.name}}</a>
         </div>
+    </div>
+    <div class="col-md-12 text-center mt-2">
+        <button class="btn btn-success center-block" type="submit" ng-click="downloadList.logout()">Logout</button>
     </div>
 </div>
