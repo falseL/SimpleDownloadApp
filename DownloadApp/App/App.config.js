@@ -1,16 +1,17 @@
-﻿downloadApp.config(function ($stateProvider, $urlRouterProvider) {
+﻿'use strict';
+downloadApp.config(function ($stateProvider, $urlRouterProvider) {
     $urlRouterProvider.otherwise('/home');
     $stateProvider
         .state('home', {
             url: '/home',
             templateUrl: '/App/Templates/downloadlist.html',
-            controller: "DownloadCtrl as downloadList"
+            controller: "DownloadController as downloadList"
         })
         .state('login', {
             url: '/login',
             templateUrl: '/App/Templates/login.html',
             controller: "LoginController as loginform"
-        })
+        });
 });
 
 downloadApp.run(function ($rootScope, $state) {

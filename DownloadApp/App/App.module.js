@@ -1,3 +1,4 @@
-﻿var downloadApp = angular
+﻿'use strict';
+var downloadApp = angular
     .module('DownloadApp', ['ui.router'])
     .constant('ApiBasePath', "/");

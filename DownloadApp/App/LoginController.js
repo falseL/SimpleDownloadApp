@@ -1,5 +1,4 @@
 ﻿'use strict';
-
 downloadApp
     .controller('LoginController', LoginController)
     .factory('LoginService', LoginService);
@@ -23,11 +22,17 @@ function LoginController($state, LoginService) {
             }
             else {
                 sessionStorage.clear();
-                loginForm.error = "Incorrect username/password !";
+                loginForm.error = "Something went wrong";
             }
         }).catch(function (e) {
             sessionStorage.clear();
-            loginForm.error = "Incorrect username/password !";
+            if (e.status == 400) {
+                loginForm.error = "Incorrect username/password!";
+            }
+            else {
+                loginForm.error = "Server Error, Please try again later !";
+            }
+            console.log(e);
         });
     };
 }
@@ -50,4 +55,3 @@ function LoginService($http, ApiBasePath) {
         }
     };
 };
-

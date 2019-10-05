@@ -1,11 +1,11 @@
 ﻿'use strict';
 downloadApp
-    .controller('DownloadCtrl', DownloadCtrl)
+    .controller('DownloadController', DownloadController)
     .service('DownloadService', DownloadService)
     .filter('filesize', FileSizeFilter);
 
-DownloadCtrl.$inject = ['$state', 'DownloadService','$scope'];
-function DownloadCtrl($state, DownloadService, $scope) {
+DownloadController.$inject = ['$state', 'DownloadService','$scope'];
+function DownloadController($state, DownloadService, $scope) {
     var downloadList = this;
     var promise = DownloadService.getDownloadItems();
     
