@@ -226,7 +226,6 @@
     <Content Include="App\DownloadController.js" />
     <Content Include="App\Templates\login.html" />
     <Content Include="App\Templates\downloadlist.html" />
-    <Content Include="App\Test\Appspec.js" />
     <Content Include="Areas\HelpPage\HelpPage.css" />
     <Content Include="Content\bootstrap-grid.css" />
     <Content Include="Content\bootstrap-grid.min.css" />
@@ -307,6 +306,7 @@
     <Content Include="Public\demoPdf.pdf" />
     <Content Include="Public\demoWord.doc" />
     <None Include="Properties\PublishProfiles\DownloadApp20191003115210 - Web Deploy.pubxml" />
+    <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
