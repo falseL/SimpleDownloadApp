@@ -4,12 +4,12 @@ downloadApp.config(function ($stateProvider, $urlRouterProvider) {
     $stateProvider
         .state('home', {
             url: '/home',
-            templateUrl: './App/Templates/downloadlist.html',
+            templateUrl: '/App/Templates/downloadlist.html',
             controller: "DownloadController as downloadList"
         })
         .state('login', {
             url: '/login',
-            templateUrl: './App/Templates/login.html',
+            templateUrl: '/App/Templates/login.html',
             controller: "LoginController as loginform"
         });
 });
